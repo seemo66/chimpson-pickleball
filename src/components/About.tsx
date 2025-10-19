@@ -1,18 +1,40 @@
-export default function About() {
+import { AboutDataType } from '@/app/page';
+import Image from 'next/image';
+
+type AboutProps = {
+  aboutData: AboutDataType;
+};
+
+export default function About({ aboutData }: AboutProps) {
+  const { headline, paragraphs, cta } = aboutData;
+
   return (
-    <section className="mt-12 space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">About Chimpson Pickleball</h1>
-      <p className="text-lg text-gray-700">
-        Welcome to Chimpson Pickleball! We are passionate about the sport of pickleball and are
-        dedicated to providing high-quality equipment and accessories for players of all skill
-        levels. Whether you&apos;re a beginner or a seasoned pro, we have everything you need to
-        enjoy the game.
-      </p>
-      <p className="text-lg text-gray-700">
-        Our mission is to promote the growth of pickleball by offering top-notch products,
-        exceptional customer service, and fostering a vibrant community of players. Join us on this
-        exciting journey and let&apos;s make pickleball the fastest-growing sport together!
-      </p>
+    <section className="md:gap-30 mt-18 mx-[10px] flex flex-col-reverse gap-6 md:mt-[150px] md:flex-row-reverse md:items-center">
+      <Image
+        src="/images/about.webp"
+        alt="coach Brian playing pickleball"
+        width={6000}
+        height={4000}
+        className="h-auto w-full object-cover md:h-[700px] md:w-[40%]"
+      />
+      <div className="flex flex-col gap-[35px]">
+        <h2 className="leading-14 font-raleway text-5xl font-medium text-black">{headline}</h2>
+        {paragraphs.map((paragraph, index) => (
+          <p
+            key={index}
+            className={`text-lg text-black ${index === paragraphs.length - 1 ? 'mb-[25px]' : ''}`}
+          >
+            {[paragraph]}
+          </p>
+        ))}
+
+        <a
+          href="#contact-us"
+          className="hidden h-[60px] w-[150px] items-center justify-center bg-black text-center font-normal leading-6 text-white hover:bg-black/90 md:flex md:h-[75px] md:w-[250]"
+        >
+          {cta}
+        </a>
+      </div>
     </section>
   );
 }

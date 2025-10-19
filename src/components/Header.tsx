@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Logo from './Logo';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,22 +10,17 @@ export default function Header() {
   const links = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Services', href: '/services' },
   ];
 
   return (
-    <header className="] flex h-[90px] w-full flex-row px-6 pr-8 md:px-10">
+    <header className="] flex h-[90px] w-full flex-row px-6 pr-8 md:items-center md:justify-between md:px-10">
       <Link href="/" className="z-41 flex flex-row items-center gap-2">
-        <Image
-          src="/images/logo-white_on_trans.png"
-          alt="chimpson pickleball log"
-          width={1378}
-          height={1137}
-          className="h-auto w-16 object-cover"
-        />
+        <Logo mobileOpen={mobileOpen} />
 
-        <h2 className="font-raleway text-lg font-bold leading-tight tracking-[3px] text-white">
+        <h2
+          className={`font-raleway text-lg font-bold leading-tight tracking-[3px] transition-all duration-300 ${mobileOpen ? 'text-black' : 'text-white'}`}
+        >
           CHIMPSON
           <br className="block md:hidden" />
           <span className="hidden md:inline">&nbsp;</span>
@@ -34,15 +29,19 @@ export default function Header() {
       </Link>
 
       {/* Desktop menu */}
-      <ul className="z-41 ml-auto hidden items-center space-x-8 text-lg font-medium text-white md:flex">
+      <ul className="z-41 hidden flex-1 items-center justify-center space-x-8 text-lg font-medium text-white md:flex">
         {links.map((link) => (
           <li key={link.href}>
-            <a href={link.href} className="hover:text-blue-600">
-              {link.label}
-            </a>
+            <a href={link.href}>{link.label}</a>
           </li>
         ))}
       </ul>
+      <a
+        href="#contact-us"
+        className="bg-yellow text-dark hover:bg-yellow/90 z-[41] my-auto hidden h-[52px] w-[125px] items-center justify-center text-center text-sm font-normal leading-6 md:flex"
+      >
+        Contact us
+      </a>
 
       {/* Mobile Hamburger */}
       <div className="ml-auto flex items-center md:hidden">
@@ -81,6 +80,12 @@ export default function Header() {
             {link.label}
           </Link>
         ))}
+        <a
+          href="#contact-us"
+          className={`mt-[20px] flex h-[60px] w-[190px] items-center justify-center bg-black text-center font-normal leading-6 text-white hover:bg-black/90 ${mobileOpen ? 'fade-up' : ''}`}
+        >
+          Contact us
+        </a>
       </div>
     </header>
   );

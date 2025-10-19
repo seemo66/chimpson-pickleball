@@ -2,37 +2,26 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <div className="isolate overflow-hidden py-24 sm:py-32">
+    <div className="isolate flex h-[400px] min-h-[735px] flex-col justify-end overflow-hidden md:w-[100%]">
       <Image
-        src="/images/jon-matthews-FVhXFRkLcpA-unsplash.jpg"
-        alt=""
+        src="/images/header-hero-woman.webp"
+        alt="woman playing pickleball"
         fill
         priority
-        className="absolute inset-0 -z-10 w-full object-cover object-center md:object-center"
+        className="absolute inset-0 -z-10 max-h-[842px] w-full object-cover object-center"
       />
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Welcome to Our Community
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            Join us in exploring the latest trends and insights in technology, innovation, and
-            creativity. Connect with like-minded individuals and grow together.
-          </p>
-          <div className="mt-10 flex items-center gap-x-6">
-            <a
-              href="#get-started"
-              className="rounded-md bg-indigo-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-            >
-              Get Started
-            </a>
-            <a
-              href="#learn-more"
-              className="text-sm font-semibold leading-6 text-white hover:underline"
-            >
-              Learn more <span aria-hidden="true">→</span>
-            </a>
-          </div>
+      <div className="mx-auto mb-[20%] px-6 md:mb-[7%] lg:px-8">
+        <div className="mx-auto lg:mx-0">
+          <h1 className="fade-up font-raleway mb-14 text-[73px] leading-[80px] tracking-tight text-white md:mt-[120px] md:text-center md:text-8xl md:leading-[120px]">
+            <span className="underline-pen">Your</span> pickleball journey starts here
+          </h1>
+
+          <a
+            href="#contact-us"
+            className="bg-yellow text-dark hover:bg-yellow/90 m-auto flex h-[60px] w-[150px] items-center justify-center text-center font-normal leading-6 md:h-[75px] md:w-[250]"
+          >
+            Contact us
+          </a>
         </div>
       </div>
     </div>
