@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 
 export default function Hero() {
@@ -12,15 +13,19 @@ export default function Hero() {
       />
       <div className="mx-auto mb-[20%] px-6 md:mb-[7%] lg:px-8">
         <div className="mx-auto lg:mx-0">
-          <h1 className="fade-up font-raleway mb-14 text-[73px] leading-[80px] tracking-tight text-white md:mt-[120px] md:text-center md:text-8xl md:leading-[120px]">
+          <h1 className="fade-up mb-14 font-raleway text-[73px] leading-[80px] tracking-tight text-white md:mt-[120px] md:text-center md:text-8xl md:leading-[120px]">
             <span className="underline-pen">Your</span> pickleball journey starts here
           </h1>
 
           <a
             href="#contact-us"
-            className="bg-yellow text-dark hover:bg-yellow/90 m-auto flex h-[60px] w-[150px] items-center justify-center text-center font-normal leading-6 md:h-[75px] md:w-[250]"
+            className="bg-yellow hover:bg-yellow/90 m-auto flex h-[60px] w-[150px] items-center justify-center text-center font-normal leading-6 text-dark md:h-[75px] md:w-[250]"
+            onClick={() => {
+              // scroll smoothly to the waiting list section
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
-            Contact us
+            contact us
           </a>
         </div>
       </div>

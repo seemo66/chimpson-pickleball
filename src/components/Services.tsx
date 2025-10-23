@@ -33,7 +33,7 @@ export default function Services() {
     },
   ];
   return (
-    <section className="mt-18 mx-[10px] flex flex-col gap-12 md:mt-[150px]">
+    <section id="services" className="mt-18 mx-[10px] flex flex-col gap-12 md:mt-[150px]">
       <h2 className="leading-14 text-center font-raleway text-3xl font-medium text-black">
         Choose your starting point
       </h2>

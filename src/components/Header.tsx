@@ -8,16 +8,14 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services' },
+    { label: 'About', href: 'about' },
+    { label: 'Services', href: 'services' },
   ];
 
   return (
-    <header className="] flex h-[90px] w-full flex-row px-6 pr-8 md:items-center md:justify-between md:px-10">
-      <Link href="/" className="z-41 flex flex-row items-center gap-2">
+    <header className="flex h-[90px] w-full flex-row px-6 pr-8 md:items-center md:justify-between md:px-10">
+      <div className="z-41 flex flex-row items-center gap-2">
         <Logo mobileOpen={mobileOpen} />
-
         <h2
           className={`font-raleway text-lg font-bold leading-tight tracking-[3px] transition-all duration-300 ${mobileOpen ? 'text-black' : 'text-white'}`}
         >
@@ -26,22 +24,37 @@ export default function Header() {
           <span className="hidden md:inline">&nbsp;</span>
           PICKLEBALL
         </h2>
-      </Link>
+      </div>
 
-      {/* Desktop menu */}
-      <ul className="z-41 hidden flex-1 items-center justify-center space-x-8 text-lg font-medium text-white md:flex">
-        {links.map((link) => (
-          <li key={link.href}>
-            <a href={link.href}>{link.label}</a>
-          </li>
-        ))}
-      </ul>
-      <a
-        href="#contact-us"
-        className="bg-yellow text-dark hover:bg-yellow/90 z-[41] my-auto hidden h-[52px] w-[125px] items-center justify-center text-center text-sm font-normal leading-6 md:flex"
-      >
-        Contact us
-      </a>
+      <div className="flex flex-row items-center justify-end gap-6">
+        {/* Desktop menu */}
+        <ul className="z-41 hidden flex-1 items-center justify-center space-x-8 text-lg font-medium text-white md:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <button
+                className="hover:cursor-pointer"
+                onClick={() => {
+                  // scroll smoothly to the waiting list section
+                  document.getElementById(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                {link.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#contact"
+          className="bg-yellow hover:bg-yellow/90 z-[41] my-auto hidden h-[52px] w-[125px] items-center justify-center text-center text-sm font-normal leading-6 text-dark md:flex"
+          onClick={(e) => {
+            e.preventDefault();
+            // scroll smoothly to the waiting list section
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          contact us
+        </a>
+      </div>
 
       {/* Mobile Hamburger */}
       <div className="ml-auto flex items-center md:hidden">
@@ -70,22 +83,30 @@ export default function Header() {
           mobileOpen ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
+        {links.map((link, index) => (
+          <button
+            key={index}
             className="text-2xl"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              setMobileOpen(false);
+              // scroll smoothly to the waiting list section
+              document.getElementById(link.href)?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
             {link.label}
-          </Link>
+          </button>
         ))}
-        <a
-          href="#contact-us"
+        <button
           className={`mt-[20px] flex h-[60px] w-[190px] items-center justify-center bg-black text-center font-normal leading-6 text-white hover:bg-black/90 ${mobileOpen ? 'fade-up' : ''}`}
+          onClick={() => {
+            setMobileOpen(false);
+
+            // scroll smoothly to the waiting list section
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
-          Contact us
-        </a>
+          contact us
+        </button>
       </div>
     </header>
   );

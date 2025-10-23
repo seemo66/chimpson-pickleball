@@ -2,6 +2,7 @@ import './globals.css';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 import { Raleway, Roboto } from 'next/font/google';
 
@@ -16,9 +17,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${raleway.variable} ${roboto.variable}`}>
-      <body className="font-roboto bg-white text-black">
+      <body className="bg-white font-roboto text-black">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
