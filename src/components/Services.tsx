@@ -34,7 +34,7 @@ export default function Services() {
   ];
   return (
     <section id="services" className="mt-18 mx-[10px] flex flex-col gap-12 md:mt-[150px]">
-      <h2 className="leading-14 text-center font-raleway text-3xl font-medium text-black">
+      <h2 className="text-center font-raleway text-3xl font-medium leading-10 text-black">
         Choose your starting point
       </h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

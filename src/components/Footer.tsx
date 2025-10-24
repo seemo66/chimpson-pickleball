@@ -4,8 +4,8 @@ import Logo from './Logo';
 
 export default function Footer() {
   const links = [
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services' },
+    { label: 'About', href: 'about' },
+    { label: 'Services', href: 'services' },
   ];
 
   return (
