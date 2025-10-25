@@ -6,13 +6,14 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { name, email, message } = data;
+    const { firstname, lastname, email, message } = data;
+    console.log('Received contact form data: ', firstname, lastname, email, message);
 
     await resend.emails.send({
-      from: 'Your Site <noreply@yourdomain.com>',
+      from: 'www.chimpsonpickleball.com',
       to: 'seemo66@gmail.com',
-      subject: `New message from ${name}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
+      subject: `New message from ${firstname} ${lastname}`,
+      text: `From: ${firstname} ${lastname} <${email}>\n\n${message}`,
     });
 
     return NextResponse.json({ success: true });

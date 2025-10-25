@@ -26,7 +26,6 @@ export default function ContactForm() {
       if (!res.ok) {
         console.error('Something went wrong, ', res.statusText);
       } else {
-        formRef.current?.reset();
         setIsVisible(true);
 
         // delay slightly so transition runs (prevents instant render)
@@ -36,6 +35,7 @@ export default function ContactForm() {
         setTimeout(() => {
           setSubmitted(false);
           setTimeout(() => setIsVisible(false), 700); // after fade-out
+          formRef.current?.reset();
         }, 5000);
       }
     } catch (error) {
