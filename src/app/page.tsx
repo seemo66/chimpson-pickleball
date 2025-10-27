@@ -15,7 +15,7 @@ const aboutData: AboutDataType = {
     'Hi, I’m Brian Simpson, a PPR-certified pickleball coach originally from Scotland and now proud to call Ventura, California home.',
     'I love helping people discover the fun, social side of pickleball while building confidence and fitness along the way. Whether you’ve never picked up a paddle or you’re getting back into movement after a break, I’ll meet you exactly where you are, no pressure, just progress.',
   ],
-  cta: 'contact us',
+  cta: 'contact',
 };
 
 export default function Home() {

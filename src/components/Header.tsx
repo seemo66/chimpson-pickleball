@@ -43,17 +43,16 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="bg-yellow hover:bg-yellow/90 z-[41] my-auto hidden h-[52px] w-[125px] items-center justify-center text-center text-sm font-normal leading-6 text-dark md:flex"
+        <button
+          className="bg-yellow hover:bg-yellow/90 z-[41] my-auto hidden h-[52px] w-[125px] items-center justify-center text-center text-sm font-normal leading-6 text-dark hover:cursor-pointer md:flex"
           onClick={(e) => {
             e.preventDefault();
             // scroll smoothly to the waiting list section
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          contact us
-        </a>
+          contact
+        </button>
       </div>
 
       {/* Mobile Hamburger */}
@@ -105,7 +104,7 @@ export default function Header() {
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          contact us
+          contact
         </button>
       </div>
     </header>

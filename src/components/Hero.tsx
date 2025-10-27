@@ -17,16 +17,15 @@ export default function Hero() {
             <span className="underline-pen">Your</span> pickleball journey starts here
           </h1>
 
-          <a
-            href="#contact-us"
-            className="bg-yellow hover:bg-yellow/90 m-auto flex h-[60px] w-[150px] items-center justify-center text-center font-normal leading-6 text-dark md:h-[75px] md:w-[250]"
+          <button
+            className="bg-yellow hover:bg-yellow/90 m-auto flex h-[60px] w-[150px] items-center justify-center text-center font-normal leading-6 text-dark hover:cursor-pointer md:h-[75px] md:w-[250]"
             onClick={() => {
               // scroll smoothly to the waiting list section
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            contact us
-          </a>
+            contact
+          </button>
         </div>
       </div>
     </div>

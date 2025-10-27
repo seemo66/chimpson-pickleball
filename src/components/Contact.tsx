@@ -8,7 +8,7 @@ export default function Contact() {
         id="contact"
         className="leading-14 mt-10 text-center font-raleway text-3xl font-medium text-black md:mt-[150px]"
       >
-        Contact us
+        Contact Brian
       </h2>
       <section className="relative mx-[10px] mt-8 flex flex-col items-center justify-center gap-12 md:h-[800px]">
         <Image
