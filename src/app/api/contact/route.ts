@@ -7,13 +7,13 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
     const { firstname, lastname, email, message } = data;
-    console.log('Received contact form data: ', firstname, lastname, email, message);
 
     await resend.emails.send({
-      from: email,
-      to: 'seemo66@gmail.com',
+      from: 'Chimpson Pickleball <noreply@chimpsonpickleball.com>', // must match your verified domain
+      to: 'seemo66@gmail.com', // your personal inbox
       subject: `New message from ${firstname} ${lastname}`,
       text: `From: ${firstname} ${lastname} <${email}>\n\n${message}`,
+      replyTo: `${firstname} ${lastname} <${email}>`, // this line lets you reply directly to sender
     });
 
     return NextResponse.json({ success: true });
