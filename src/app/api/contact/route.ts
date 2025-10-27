@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     console.log('Received contact form data: ', firstname, lastname, email, message);
 
     await resend.emails.send({
-      from: 'www.chimpsonpickleball.com',
+      from: email,
       to: 'seemo66@gmail.com',
       subject: `New message from ${firstname} ${lastname}`,
       text: `From: ${firstname} ${lastname} <${email}>\n\n${message}`,
