@@ -10,7 +10,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: 'Chimpson Pickleball <noreply@chimpsonpickleball.com>', // must match your verified domain
-      to: 'seemo66@gmail.com', // your personal inbox
+      to: 'info@chimpsonpickleball.com', // your personal inbox
       subject: `New message from ${firstname} ${lastname}`,
       text: `From: ${firstname} ${lastname} <${email}>\n\n${message}`,
       replyTo: `${firstname} ${lastname} <${email}>`, // this line lets you reply directly to sender
